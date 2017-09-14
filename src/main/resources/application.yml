@@ -9,6 +9,6 @@ environments:
     server.port: 8081
   production:
     #mongodb
-    spring.data.mongodb.uri: mongodb://sidronio:S16l1800@ds135624.mlab.com:35624/heroku_rkct7jcl
+    spring.data.mongodb.uri: mongodb://heroku_rkct7jcl:91fn1ah3d7gshmjs8ug8bcljof@ds135624.mlab.com:35624/heroku_rkct7jcl
     
     
