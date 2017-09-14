@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.tetrati.school.model.Aluno;
+import br.com.tetrati.school.model.User;
 import br.com.tetrati.school.repository.AlunoRepository;
 
 @Service
@@ -41,5 +42,11 @@ public class AlunoServiceImpl implements AlunoService
 	public Aluno findById(String id) 
 	{
 		return this.repo.findOne(id);
+	}
+
+	@Override
+	public Aluno findByEmail(String email) 
+	{
+		return this.repo.findByEmail(email);
 	}
 }

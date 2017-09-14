@@ -1,0 +1,14 @@
+environments:
+  development:
+    #mongodb
+    spring.data.mongodb.host: localhost
+    spring.data.mongodb.port: 27017
+    spring.data.mongodb.database: schoolDb
+    
+    #spring
+    server.port: 8081
+  production:
+    #mongodb
+    spring.data.mongodb.uri: mongodb://sidronio:S16l1800@ds135624.mlab.com:35624/heroku_rkct7jcl
+    
+    

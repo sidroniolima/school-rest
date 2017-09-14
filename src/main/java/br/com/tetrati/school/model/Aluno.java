@@ -1,62 +1,134 @@
 package br.com.tetrati.school.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Data
 @Document(collection="alunos")
 public class Aluno 
 {
 	@Id
-	private String id;
+	private String _id;
 	
-	private String nome;	
+	private String turmaNumero;
 	private Serie serie;
-	private String turma;
+	private int numeroChamada;
 	
-	private List<Bimestre> bimestres = new ArrayList<Bimestre>();
+	private String nome;
+	private String email;
+
+	@DBRef
+	private User user;
+	
+	List<Media> medias;
 	
 	public Aluno() 
-	{ 
-		bimestres.addAll(Arrays.asList(
-				new Bimestre("1o bimestre"), 
-				new Bimestre("2o bimestre"), 
-				new Bimestre("3o bimestre"), 
-				new Bimestre("4o bimestre")));
+	{	
+		user = new User();
+		medias = new ArrayList<Media>();
 	}
 
-	public Aluno(String nome, Serie serie, String turma) 
+	public Aluno(
+			String _id, 
+			String turmaNumero, 
+			Serie serie, 
+			int numeroChamada, 
+			String nome, 
+			String email) 
 	{
 		this();
-		
-		this.nome = nome;
+		this._id = _id;
+		this.turmaNumero = turmaNumero;
 		this.serie = serie;
-		this.turma = turma;
+		this.numeroChamada = numeroChamada;
+		this.nome = nome;
+		this.email = email;
+	}	
+	
+	public Aluno(String _id, int numeroChamada, String nome) 
+	{
+		this();
+		this._id = _id;
+		this.numeroChamada = numeroChamada;
+		this.nome = nome;
 	}
 	
-	public void criaDiarios(List<Disciplina> disciplinas)
+	public Aluno(int numeroChamada, String nome) 
 	{
-		bimestres.stream().forEach(b -> {
-			disciplinas.stream().forEach(d -> b.diarios.add(new Diario(d)));
-		});
+		this();
+		this.numeroChamada = numeroChamada;
+		this.nome = nome;
 	}
 
-	public void insereAtividade(Bimestre bimestre, Diario diario, Atividade atividade) 
+	public void adicionarMedia(Media media)
 	{
-		int index = this.getBimestres().indexOf(bimestre);
+		this.medias.add(media);
+	}
+	
+	@JsonProperty(value="serieDescricao")
+	public String getSerieDescricao()
+	{
+		return this.serie.getDescricao();
+	}
+	
+	public String get_id() {
+		return _id;
+	}
+	public void set_id(String _id) {
+		this._id = _id;
+	}
 
-		if (index > 0)
-		{
-			throw new IllegalArgumentException("Não foi possível localizar o bimestre.");
-		}
-		
-		Bimestre bim = this.getBimestres().get(index);
-		bim.insereAtividade(diario, atividade);
+	public int getNumeroChamada() {
+		return numeroChamada;
+	}
+	public void setNumeroChamada(int numeroChamada) {
+		this.numeroChamada = numeroChamada;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getTurmaNumero() {
+		return turmaNumero;
+	}
+	public void setTurmaNumero(String turmaNumero) {
+		this.turmaNumero = turmaNumero;
+	}
+
+	public Serie getSerie() {
+		return serie;
+	}
+	public void setSerie(Serie serie) {
+		this.serie = serie;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	public List<Media> getMedias() {
+		return medias;
+	}
+	public void setMedias(List<Media> medias) {
+		this.medias = medias;
 	}
 }

@@ -1,6 +1,6 @@
 package br.com.tetrati.school.model;
 
-public enum Tipo 
+public enum TipoAtividade 
 {
 	PROVA_QUINZENAL("Prova"),
 	PROVA_MENSAL("Prova mensal"),
@@ -10,7 +10,7 @@ public enum Tipo
 	
 	private String descricao;
 
-	private Tipo(String descricao) 
+	private TipoAtividade(String descricao) 
 	{
 		this.descricao = descricao;
 	}
