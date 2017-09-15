@@ -3,4 +3,4 @@ spring:
       active: prod
     data:
       mongodb:
-         database: heroku_rkct7jcl
+        uri: mongodb://heroku_rkct7jcl:91fn1ah3d7gshmjs8ug8bcljof@ds135624.mlab.com:35624/heroku_rkct7jcl
