@@ -1,6 +1,6 @@
 spring:
     profiles: 
-      active: dev
+      active: prod
     data:
       mongodb:
          database: heroku_rkct7jcl
