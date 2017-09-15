@@ -1,0 +1,6 @@
+spring:
+    profiles: 
+      active: dev
+    data:
+      mongodb:
+         database: heroku_rkct7jcl
