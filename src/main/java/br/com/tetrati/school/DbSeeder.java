@@ -64,6 +64,15 @@ public class DbSeeder implements CommandLineRunner
 		luiza.adicionarMedia(new Media(Materia.CIENCIAS, Periodo.PRIMEIRO_BIMESTRE, 92, 2017, "802", Serie.OITAVO_ANO));
 		luiza.adicionarMedia(new Media(Materia.EDUCACAO_FISICA, Periodo.PRIMEIRO_BIMESTRE, 77, 2017, "802", Serie.OITAVO_ANO));
 		
+		luiza.adicionarMedia(new Media(Materia.MATEMATICA, Periodo.SEGUNDO_BIMESTRE, 90, 2017, "802", Serie.OITAVO_ANO));
+		luiza.adicionarMedia(new Media(Materia.HISTORIA, Periodo.SEGUNDO_BIMESTRE, 85, 2017, "802", Serie.OITAVO_ANO));
+		luiza.adicionarMedia(new Media(Materia.GEOGRAFIA, Periodo.SEGUNDO_BIMESTRE, 77, 2017, "802", Serie.OITAVO_ANO));
+		luiza.adicionarMedia(new Media(Materia.PORTUGUES, Periodo.SEGUNDO_BIMESTRE, 82, 2017, "802", Serie.OITAVO_ANO));
+		luiza.adicionarMedia(new Media(Materia.INGLES, Periodo.SEGUNDO_BIMESTRE, 88, 2017, "802", Serie.OITAVO_ANO));
+		luiza.adicionarMedia(new Media(Materia.ESPANHOL, Periodo.SEGUNDO_BIMESTRE, 97, 2017, "802", Serie.OITAVO_ANO));
+		luiza.adicionarMedia(new Media(Materia.GEOMETRIA, Periodo.SEGUNDO_BIMESTRE, 88, 2017, "802", Serie.OITAVO_ANO));
+		luiza.adicionarMedia(new Media(Materia.CIENCIAS, Periodo.SEGUNDO_BIMESTRE, 77, 2017, "802", Serie.OITAVO_ANO));
+		luiza.adicionarMedia(new Media(Materia.EDUCACAO_FISICA, Periodo.SEGUNDO_BIMESTRE, 70, 2017, "802", Serie.OITAVO_ANO));
 		
 		this.alunoRepo.save(luiza);
 		

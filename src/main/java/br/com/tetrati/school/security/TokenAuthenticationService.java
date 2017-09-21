@@ -3,6 +3,8 @@ package br.com.tetrati.school.security;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,8 +25,12 @@ public class TokenAuthenticationService
 	
 	static void addAuthentication(HttpServletResponse response, String username, Collection<? extends GrantedAuthority> collection)
 	{
+		Map<String, Object> claims = new HashMap<>();
+		claims.put("roles", collection);
+		claims.put("subject", username);
+		
 		String JWT = Jwts.builder()
-						.setSubject(username)
+						.setClaims(claims)
 						.setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
 						.signWith(SignatureAlgorithm.HS512, SECRET)
 						.compact();

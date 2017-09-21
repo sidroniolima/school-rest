@@ -6,6 +6,7 @@ public class Media
 {
 	private Materia materia;
 	private Periodo periodo;
+	private int numeroPeriodo;
 	private double nota;
 	private int anoLetivo;
 	private String turmaNumero;
@@ -19,6 +20,7 @@ public class Media
 		this.anoLetivo = anoLetivo;
 		this.turmaNumero = turmaNumero;
 		this.serie = serie;
+		this.numeroPeriodo = periodo.getOrdem();
 	}
 	
 	public Materia getMateria() {
@@ -28,6 +30,13 @@ public class Media
 		this.materia = materia;
 	}
 	
+	public int getNumeroPeriodo() {
+		return numeroPeriodo;
+	}
+	public void setNumeroPeriodo(int numeroPeriodo) {
+		this.numeroPeriodo = numeroPeriodo;
+	}
+
 	public Periodo getPeriodo() {
 		return periodo;
 	}
