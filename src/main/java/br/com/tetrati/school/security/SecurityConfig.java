@@ -38,9 +38,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 			.authorizeRequests()
 				.antMatchers(HttpMethod.POST, "/login").permitAll()
 				.antMatchers(HttpMethod.OPTIONS, "/login").permitAll()
-				.antMatchers("api/**").hasAnyRole("USER", "ADMIN")
-				.antMatchers("api/admin/**").hasAnyRole("ADMIN")
+				.antMatchers("/api/**").hasAnyRole("USER")
+				.antMatchers("/api/admin/**").hasAnyRole("ADMIN")
 				.anyRequest().authenticated()
+				
 			.and()
 			
 			//filtra requisições de login

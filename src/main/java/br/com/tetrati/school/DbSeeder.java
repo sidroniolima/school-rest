@@ -13,6 +13,7 @@ import br.com.tetrati.school.model.Disciplina;
 import br.com.tetrati.school.model.Materia;
 import br.com.tetrati.school.model.Media;
 import br.com.tetrati.school.model.Periodo;
+import br.com.tetrati.school.model.Role;
 import br.com.tetrati.school.model.Serie;
 import br.com.tetrati.school.model.User;
 import br.com.tetrati.school.repository.AlunoRepository;
@@ -89,6 +90,7 @@ public class DbSeeder implements CommandLineRunner
 		sidronio.adicionarMedia(new Media(Materia.PORTUGUES, Periodo.PRIMEIRO_BIMESTRE, 82, 2017, "3003", Serie.TERCEIRO_ANO_SEGUNDO_GRAU));
 		
 		User userSidronio = new User("sidronio@hotmail.com", "12345");
+		userSidronio.getRoles().add(Role.ROLE_ADMIN);
 		userRepo.save(userSidronio);
 		
 		sidronio.setUser(userSidronio);
